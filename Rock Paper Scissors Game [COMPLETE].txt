@@ -1,0 +1,80 @@
+import random
+import sys
+pick = ['Rock', 'Paper', 'Scissors']
+score = 3
+
+def game():
+    global score
+    num = random.choice(pick)
+    print('Your score is:', score)
+    ans = int(input('1) Rock  2) Paper 3)Scissors    4)QUIT '))
+    print()
+    if ans == 1:
+        print('You picked: Rock  Simon picked:', num)
+        if num == pick[0]:
+            print('You tied!')
+            print()
+            game()    
+        if num == pick[1]:
+            print('You lose!')
+            pointloss() 
+        if num == pick[2]:
+            print('You win!')
+            pointplus()
+    if ans == 2:
+        print('You picked: Paper,  Simon picked:', num)
+        if num == pick[0]:
+            print('You win!')
+            pointplus()    
+        if num == pick[1]:
+            print('You tied!')
+            print()
+            game() 
+        if num == pick[2]:
+            print('You lose!')
+            pointloss() 
+    if ans == 3:
+        print('You picked: Scissors,  Simon picked:', num)
+        if num == pick[0]:
+            print('You lose!')
+            pointloss()    
+        if num == pick[1]:
+            print('You win!')
+            pointplus() 
+        if num == pick[2]:
+            print('You tied!')
+            print()
+            game()
+    if ans == 4:
+        print('Thank you for playing! Goodbye!')
+        sys.exit()
+    else:
+        game()
+            
+            
+def pointplus():
+    global score
+    score = score + 1
+    if score == 6:
+        print('Congratulations! You win! Thank you for playing!')
+        sys.exit()
+    else:
+       print()
+       game()
+       
+def pointloss():
+    global score
+    score = score - 1
+    if score == 0:
+        print()
+        print('Uh oh! You lost! Game over! Thank you for playing!')
+        sys.exit()
+    else:
+       print()
+       game()
+            
+            
+
+game()
+ 
+
