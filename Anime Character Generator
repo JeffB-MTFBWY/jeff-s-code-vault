@@ -1,0 +1,96 @@
+from tkinter import *
+import random
+
+Blood_Type = ['A', 'B', 'AB', 'O']
+A_trait = ['earnest', 'sensible', 'reserved', 'patient', 'responsible', 'cautious','fastidious', 'overearnest', 'stubborn', 'tense', 'obsessive', 'pessimistic']
+B_trait = ['passionate', 'active', 'creative', 'animal-loving', 'flexible', 'cheerful', 'optimistic', 'irresponsible', 'forgetful', 'selfish', 'lazy', 'impatient', 'unreliable', 'unconventional']
+AB_trait = ['cool', 'controlled', 'rational', 'sociable', 'adaptable', 'intelligent', 'critical', 'indecisive', 'unforgiving', 'two-faced', 'aloof', 'fickle']
+O_trait = ['confident', 'self-determined', 'ambitious', 'strong-willed', 'intuitive', 'agreeable', 'competetive', 'athletic', 'self-centered', 'cold', 'aggressive', 'unpredictable', 'arrogant', 'envious', 'ruthless']
+Master_Traitlist = ['earnest', 'sensible', 'reserved', 'patient', 'responsible', 'cautious','fastidious', 'overearnest', 'stubborn', 'tense', 'obsessive', 'pessimistic', 'passionate', 'active', 'creative', 'animal-loving', 'flexible', 'cheerful', 'optimistic', 'irresponsible', 'forgetful', 'selfish', 'lazy', 'impatient', 'unreliable', 'unconventional', 'cool', 'controlled', 'rational', 'sociable', 'adaptable', 'intelligent', 'critical', 'indecisive', 'unforgiving', 'two-faced', 'aloof', 'fickle', 'confident', 'self-determined', 'ambitious', 'strong-willed', 'intuitive', 'agreeable', 'competetive', 'athletic', 'self-centered', 'cold', 'aggressive', 'unpredictable', 'arrogant', 'envious', 'ruthless']
+boyname = ['Makoto', 'Yusuke', 'Eiji', 'Koji', 'Hiroshi', 'Kunio', 'Riki', 'Daisuke', 'Sato', 'Gentaro', 'Kotarou', 'Jo', 'Wataru', 'Mamoru', 'Shinji', 'Ryo', 'Tsukasa', 'Takuya', 'Sho', 'Shotaro', 'Haruto', 'Keitaro', 'Kaito', 'Kouta', 'Shinnosuke', 'Goro', 'Ataru', 'Tetsuo', 'Ken', 'Jiro', 'Shiro', 'Daigo', 'Hiro', 'Takeshi', 'Taichi','Souichiro', 'Yuuto', 'Masataka', 'Keiji', 'Yuuji', 'Kenta', 'Jin', 'Nobuyuki', 'Nobuhiko', 'Jotaro']
+girlname = ['Kyoko', 'Misato', 'Kimiko', 'Usagi', 'Rei', 'Keiko', 'Yoriko', 'Achiko', 'Natsumi', 'Aya', 'Reiko', 'Erika', 'Ami', 'Shinobu', 'Makoto', 'Fujiko', 'Nanase', 'Kotoha', 'Mai', 'Mei', 'Jun', 'Hanako', 'Chie', 'Chisato', 'Anri', 'Naoko', 'Ritsuko', 'Achika', 'Momo', 'Tomoe', 'Madoka', 'Minako', 'Fuu', 'Hikaru', 'Hikari', 'Umi', 'Kana', 'Nagisa', 'Rin', 'Mako', 'Mizuho', 'Sayaka','Seiko','Tsuneko','Rie', 'Yukiko']
+surname = ['Moroboshi', 'Hino', 'Minami', 'Shigeru', 'Takahata', 'Misaki', 'Kido', 'Yamasaki', 'Utsushima', 'Onimura', 'Urahara', 'Kazuraba', 'Ohashi', 'Satonaka', "Fuu'unji", 'Saejima', 'Himura', 'Chiba', 'Godai', 'Kisaragi', '', 'Kamiya', 'Furukawa', 'Sugiyama', 'Nagai', 'Tanaka', 'Nagi', 'Makihara', 'Takano', 'Kusakabe', 'Sakurai', 'Hamatani', 'Minamiguchi', 'Ikoma', 'Nakazeki', 'Ueno', 'Kawarai', 'Iwashima', 'Kimata', 'Akizuki', 'Yuzawa', 'Monji', 'Nakamura', 'Hongo', 'Ajiri', 'Nio', 'Kimata', 'Hashimoto', 'Mushimoto', 'Kusakari', 'Shioya', 'Matsuhashi', 'Torii', 'Ikehara', 'Okuda', 'Yamagashiro', 'Adachi', 'Inoue', 'Kawazu', 'Anazawa', 'Itoh', 'Nakada', 'Moriyama', 'Onizuka']
+#occupation = ['Student', 'Police Officer', 'Idol', 'Office Worker', 'Doctor', 'Scientist', 'Philanthropist', 'Homemaker', 'Teacher']
+hobbies = ['movies', 'reading', 'art', 'photography', 'shopping', 'kendo', 'writing', 'music', 'baseball', 'basketball', 'piano', 'violin', 'judo', 'karate', 'bird watching', 'video games', 'fishing', 'karaoke', 'boxing', 'hiking', 'fencing', 'archery', 'motorcycles', 'cars', 'tennis', 'Go', 'chess', 'computers', 'calligraphy', 'origami', 'conspiracy theories', 'anime', 'manga', 'gossip', 'bug collecting', 'stamp collecting']
+bonus_bonds1 = ['HP +1', "Hero Pts +1",]
+
+def chartype(gender):
+    NameEntry.delete(0, END)
+    BloodtypeEntry.delete(0, END)
+    PersonalityEntry.delete(0, END)
+    LikesEntry.delete(0,END)
+    DislikesEntry.delete(0, END)
+    HobbyEntry.delete(0, END)
+    blood = random.choice(Blood_Type)
+    if gender == 1:#Male
+        NameEntry.insert(END, random.choice(boyname)+ " (" + random.choice(surname) + ")" + "♂")
+    if gender == 2:#Female
+        NameEntry.insert(END, random.choice(girlname)+ " (" + random.choice(surname) + ")" + "♂")
+    
+
+    if blood == "A":
+        BloodtypeEntry.insert(END, "A")
+        PersonalityEntry.insert(END, random.choice([(str(a).upper(),b) for a in A_trait [0:5] for b in A_trait [6:11]] + ([(a,(str(b).upper())) for a in A_trait [0:5] for b in A_trait [6:11]])))
+        LikesEntry.insert(END, Master_Traitlist[(random.randint(0, 52))]+ "     " + Master_Traitlist[(random.randint(0, 52))])
+        DislikesEntry.insert(END, Master_Traitlist[(random.randint(0, 52))]+ "     " + Master_Traitlist[(random.randint(0, 52))])
+        HobbyEntry.insert(END, random.choice(hobbies)+ "   " + hobbies[(random.randint(0,30))])
+        #print("\nLevel 1: " + bonus_bonds1[0])
+
+    if blood == "B":
+        BloodtypeEntry.insert(END, "B")
+        PersonalityEntry.insert(END,random.choice([(str(a).upper(),b) for a in B_trait [0:6] for b in B_trait [7:13]] + ([(a,(str(b).upper())) for a in B_trait [0:6] for b in B_trait [7:13]])))
+        LikesEntry.insert(END, Master_Traitlist[(random.randint(0, 52))]+ "     " + Master_Traitlist[(random.randint(0, 52))])
+        DislikesEntry.insert(END, Master_Traitlist[(random.randint(0, 52))]+ "     " + Master_Traitlist[(random.randint(0, 52))])
+        HobbyEntry.insert(END, random.choice(hobbies)+ "   " + hobbies[(random.randint(0,30))])
+        
+    if blood == "AB": 
+        BloodtypeEntry.insert(END, "AB") 
+        PersonalityEntry.insert(END,random.choice([(str(a).upper(),b) for a in AB_trait [0:5] for b in AB_trait [6:11]] + ([(a,(str(b).upper())) for a in AB_trait [0:5] for b in AB_trait [6:11]])))
+        LikesEntry.insert(END, Master_Traitlist[(random.randint(0, 52))]+ "     " + Master_Traitlist[(random.randint(0, 52))]) 
+        DislikesEntry.insert(END, Master_Traitlist[(random.randint(0, 52))]+ "     " + Master_Traitlist[(random.randint(0, 52))])
+        HobbyEntry.insert(END, random.choice(hobbies)+ "   " + hobbies[(random.randint(0,30))])
+        
+    if blood == "O": 
+        BloodtypeEntry.insert(END, "O")
+        PersonalityEntry.insert(END,random.choice([(str(a).upper(),b) for a in O_trait [0:7] for b in O_trait [8:14]] + ([(a,(str(b).upper())) for a in O_trait [0:7] for b in O_trait [8:14]])))
+        LikesEntry.insert(END, Master_Traitlist[(random.randint(0, 52))]+ "     " + Master_Traitlist[(random.randint(0, 52))]) 
+        DislikesEntry.insert(END, Master_Traitlist[(random.randint(0, 52))]+ "     " + Master_Traitlist[(random.randint(0, 52))])
+        HobbyEntry.insert(END, random.choice(hobbies)+ "   " + hobbies[(random.randint(0,30))])
+    
+
+root = Tk()
+root.title("Yukinaba Character Generator v1.4.1")
+root.geometry("319x323+508+121")
+root.resizable(height=False, width=False)
+
+male = Button(root, text='Male ♂️', bg='light blue', command=lambda:chartype(1)).pack(side=BOTTOM, fill=X)
+female = Button(root, text='Female ♀', bg='pink', command=lambda:chartype(2)).pack(side=BOTTOM, fill=X)
+#dummy = Button(root, command=lambda:print(root.geometry())).pack()
+
+Frame = Frame(root, height=80, width=80, bg="orange", bd=3, relief="groove").pack(side=TOP)
+
+Label1 = Label(root, text="Name").place(x=140, y=80)
+NameEntry = Entry(root, width=25)
+NameEntry.place(x=90, y=100)
+
+Label2 = Label(root, text="Blood Type").place(x=10, y=140)
+BloodtypeEntry = Entry(root, width=3)
+BloodtypeEntry.place(x=115, y=140)
+
+Label3 = Label(root, text="Personality").place(x=10, y=160)
+PersonalityEntry = Entry(root, width=30)
+PersonalityEntry.place(x=115, y=160)
+
+Label4 = Label(root, text="Likes").place(x=10, y=180)
+LikesEntry = Entry(root, width=30)
+LikesEntry.place(x=115, y=180)
+
+Label5 = Label(root, text="Dislikes").place(x=10, y=200)
+DislikesEntry = Entry(root, width=30)
+DislikesEntry.place(x=115, y=200)
+
+Label6 = Label(root, text="Hobbies/Interests").place(x=10, y=220)
+HobbyEntry = Entry(root, width=30)
+HobbyEntry.place(x=115, y=220)
+
+mainloop()
