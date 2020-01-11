@@ -1,0 +1,3 @@
+convert to no-console >>> .pyw
+
+figure out a way to adjust the HP by touch/button?
